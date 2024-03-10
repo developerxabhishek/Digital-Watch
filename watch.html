@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+</head>
+<style>
+    #watch{
+        height: 350px;
+        width: 200px;
+        background:conic-gradient(from -90deg at 50% 105%, white, orchid) ;
+        border: 2px solid black;
+        border-radius: 13px;
+        font-family: 'Young Serif', serif;
+     
+    }
+     #watchs{
+    height: 80%;
+    width: 80%;
+    /* background-color: rgb(235, 217, 235); */
+    background: conic-gradient(from .5turn at bottom center, lightblue, white);
+    margin-top: 15%;
+    border-radius: 30px;
+ 
+ 
+}
+#daydiv{
+    margin-bottom: 10px;  font-size: 30px;
+    font-weight: normal;
+    padding-top: 25px;
+    
+}
+#ampm{
+    font-size: 30px;
+    font-weight: normal;
+    
+}
+h1{
+    font-size: 20px;
+}
+span{
+    font-size: 35px;
+    padding-top: 40px;
+}
+#seconddiv{
+    font-size: 50px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+#times{
+    margin-top: 20px;
+    
+}
+#ampm{
+    margin-top: 0px;
+}
+</style>
+
+<body>
+<center>
+    <div id="watch" onload="time()">
+        <div id="watchs">
+         <h1 id="daydiv"></h1>
+        <div id="times">
+            <span id="hourdiv"></span>
+            <span id="minutediv"></span>
+        </div>
+         <h1 id="seconddiv"></h1>
+         <h1 id="ampm">AM</h1>
+        </div>
+     </div>
+</center>
+
+    <script>
+        function time(){
+            let date=new Date();
+            var hour=date.getHours();
+            var minute=date.getMinutes();
+            var second=date.getSeconds();
+            let day=date.getDay();
+            var hours=date.getHours();
+            let days=["SUN","MON","TUE","WED","THU","FRI","SAT"];
+            document.getElementById("daydiv").innerHTML=days[day];
+            if(hour>12){
+                hour=hour-12;
+                
+            }
+            if(hours>=12){
+            
+                document.getElementById("ampm").innerHTML="PM"
+            }
+            if(hour<10){
+                document.getElementById("hourdiv").innerHTML=" 0"+hour;
+            }
+            else{
+                document.getElementById("hourdiv").innerHTML=hour;
+            }
+            
+            if(minute<10){
+                document.getElementById("minutediv").innerHTML=": 0"+minute;
+            }
+            else{
+                document.getElementById("minutediv").innerHTML=":"+minute;
+            }
+            if(second<10){
+                document.getElementById("seconddiv").innerHTML="0"+second;
+            }
+            else{
+                document.getElementById("seconddiv").innerHTML=second;
+            }
+            }
+        setInterval(time,1000);
+    </script>
+</body>
+</html>
